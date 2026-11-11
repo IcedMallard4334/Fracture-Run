@@ -1,15 +1,25 @@
-# CGV Shattershift - Fracture Run
+# Fracture Run
 
-This repository contains the working concept and playable Three.js prototype for our Computer Graphics and Visualisation group project.
+[![Fracture Run trailer](docs/thumbnails/trailer-thumbnail.jpg)](https://youtu.be/9E-eLKKUVmc)
 
-**Working game title:** Fracture Run  
-**Repository name:** CGV Shattershift  
-**Primary inspiration:** Smash Hit  
-**Secondary inspiration:** Temple Run 2
+**[Watch the trailer](https://youtu.be/9E-eLKKUVmc)** · **[Watch the devlog](https://youtu.be/IBQ4ygbUeA8)**
 
-The player automatically travels through a failing glass tower, throws limited energy spheres, avoids obstacles, and uses elevator transitions to reach three distinct sectors:
+Fracture Run is a story-driven 3D escape game that runs in the browser, built with Three.js and custom GLSL shaders, with no game engine. You are Subject 07, and the tower is coming down: run, smash glass and fire spheres of energy through four sectors, ride the lifts between them, and hold the roof until the helicopter comes. It was inspired by Smash Hit and Temple Run 2.
 
-The story climbs the building, riding a lift up between each stage:
+It was made as a Computer Graphics and Visualisation group project. This is my copy of the [group repository](https://github.com/EthanChigodo/CGV-Shattershift).
+
+## Who made what
+
+- **IcedMallard4334 (me):** Level 3 (the Labs and the Roof), the story campaign that joins the levels (the briefing, the cutscenes, the dialogue and the ending), joining everyone's work into one game, most of the game systems (difficulty modes, checkpoints, the spheres, serums and abilities, Endless, the Arena and Race multiplayer modes, trophies, customisation, the global leaderboards and controller support), the lecturer's feedback rounds, hosting, the automated tests, the trailer and the devlog.
+- **Athalia Mamba:** Level 1 (the Skyline), the voices and music, the 3D menu stage, the HUD's look and the round-5 puzzles.
+- **Nkosilathi Dube:** Level 2 (the Foundry).
+- **Tebogo Sebopela:** the Gravity Fault lift, the figure's wear shader, the phone and tablet controls, and the Johannesburg city around the Roof.
+- **Ronald:** the soundtracks and sound effects, ammunition recovery, the rooftop falling scene and the first flying mutant.
+- **Ethan Chigodo:** the project's setup, the cinematic intro and the first menus.
+
+## The game
+
+The player automatically travels through a failing glass tower, throws limited energy spheres, avoids obstacles, and rides a lift up between each stage:
 
 1. **Sector 01 - The Shifting Foundry** (the basement) - third-person chase camera and moving machinery. *Playable.*
 2. **Sector 02 - The Meltdown** (the labs) - out of a lift into labs being torched to destroy the evidence, a failed ball launcher as your only tool, a stretch where the power dies, and a glass lift up. *Playable.*
@@ -98,7 +108,7 @@ A research wing 212 floors up, burning at 03:47 in the morning, in three beats: 
 - **From sedated to running for your life:** the run starts slow and blurred as Subject 07 staggers out of the pod, and builds to full pace as the adrenaline kicks in; explosions scare you into a sprint.
 - **The building coming down:** telegraphed ceiling collapses, a distant tower falling, the skybridge collapsing behind you, the atrium detonating below the lift.
 - **Tools:** four sphere types, six serum power-ups (prism split, Thermal Aegis, kinetic shield, overdrive, unlimited spheres, restoration), sprint/brake, bullet-time focus.
-- **Extras:** an orthographic tactical map of the roof, field manual, three missions per run, five collectible case files, photo mode with 360° export, and an endless mode of randomised chunks (Endless -> The Skyline).
+- **Extras:** field manual, three missions per run, five collectible case files, photo mode with 360° export, and an endless mode of randomised chunks (Endless -> The Skyline).
 - **The hardest sector:** it comes after the Labs, so it runs faster (11.4 m/s), hits, fire and smoke hurt more, the collapse behind you is quicker (9.6 m/s) and the sealed gate gives you seven seconds.
 - **In the story** it is Sector 03: you arrive by the glass lift (no pod, no sedated start) and its lift goes up to the Roof.
 - **Graphics pipeline:** custom multi-pass post-processing (screen-space refraction, bloom, FXAA, heat haze, thermal vision, power-up looks), dynamic ray-marched sky, reflection probe, sun shadows, wet reflective floors, and Auto quality with dynamic resolution for lab machines.
@@ -109,13 +119,13 @@ See [`docs/level-1-causeway.md`](./docs/level-1-causeway.md) and [`docs/shaders-
 
 The title screen offers the briefing film or goes straight to the menu. The main menu's buttons: **Start story** (the wake-up in the ward, then the Foundry), **Chapters** (start the story from the briefing, the Foundry, the Gravity Fault lift, the Labs, the Skyline or the Roof, cutscenes and all), **Endless**, **Field manual**, **Settings** and **Replay the briefing**.
 
-Beside it, the **Loadout** card: who you play as (female or male), skin tone, and the sphere you start with - all remembered.
+Beside it, the **Loadout** card: who you play as (female or male), complexion, and the sphere you start with - all remembered.
 
 The **pause menu** has the same buttons (resume, settings, restart, quit) and a guide with three tabs: the **moves** for the sector you are in (highlighted) and everywhere, the **spheres** (change type mid-run), and the **power-ups**, each with a picture of its capsule, what it does and how long it lasts.
 
 **Settings** (also the pause menu) has **Interface** (which HUD panels show - also the VIEW button), aim sensitivity, **graphics quality** (Auto, High, Medium, Low), **Reduced motion & camera shake**, and under **Sound** three volume sliders - the whole game, the music and the sound effects. Choices persist locally.
 
-**Customise** changes the character, complexion, outfit and the launcher's finish, and shows your leaderboard name card (change it there or on the **Leaderboards** screen).
+**Customise** changes the character, complexion, hair colour, outfit, shoes, headwear and the launcher's finish, and shows your leaderboard name card (change it there or on the **Leaderboards** screen).
 
 ## Multiplayer (on one machine, controllers or keyboard and mouse)
 
@@ -167,7 +177,7 @@ Stop the server with `Ctrl+C`.
 
 ## Demo shortcuts
 
-During a run, press `1`, `2`, `3`, `4` or `5` (see Controls). These shortcuts are included for project demonstrations and development testing.
+During a run, press `1` to `6` (see Controls). These shortcuts are included for project demonstrations and development testing.
 
 ## Project documents
 
@@ -203,18 +213,14 @@ node tests/race/run.js
 
 The bots play each level and answer every sphere-only obstacle with the right tool (the tests fail if the right tool doesn't work); fairness checks prove every obstacle can be passed; `tests/meltdown/checks/holds.js` checks cryo's freeze and shock's chain on the roof.
 
-## Team workflow
-
-Read [`CONTRIBUTING.md`](./CONTRIBUTING.md) before making changes. In short: create a small branch for each task, commit focused changes, and open a pull request for another teammate to review.
-
 ## Sharing and deployment
 
 ### Quickest method
 
 1. Download the repository as a ZIP or clone it with Git.
-2. Each teammate extracts the archive.
-3. They open a terminal in the extracted folder and use the local-server command above.
-4. They open `http://localhost:4173/` in Chrome.
+2. Extract the archive.
+3. Open a terminal in the extracted folder and use the local-server command above.
+4. Open `http://localhost:4173/` in Chrome.
 
 ### GitHub Pages
 
@@ -253,7 +259,7 @@ Three.js r160 is kept in the repository (`lib/three/`) rather than loaded from a
 
 ## Current status
 
-The whole story is playable from start to finish: the briefing film, the wake-up and the Foundry with Dr. Okoro, the Gravity Fault lift (its brake clamps as reaction prompts), the Labs with the breach, the bend attack and Okoro's sacrifice, the quiet ride up, the Skyline's demolition and bridge jump, the Roof, and the ending in the helicopter with the credits - over the main theme. A death restarts the sector you were in, or - past its checkpoint - from there, once. The character and skin tone picked on the start screen are the player in every level. Endless runs each environment on its own. Music is managed by `src/audio/music-manager.js` (a track per stage, and the briefing's score, which starts with the film), the voices by `src/story/voice.js`, and the recorded effects - the patients, the alarm, your pain, the building coming down - by `src/audio/level1-audio.js`, in every level; the Foundry adds a synthesized machinery bed (`src/audio/foundry-ambience.js`), and the Labs their own synthesized effects. Everything goes through one limiter (`src/audio/output.js`). Each module has its own checks (`node tests/<story|meltdown|causeway|foundry|elevators>/run.js`). Frame rates still need to be measured on lab hardware (Chrome DevTools > Rendering > FPS meter).
+The whole story is playable from start to finish: the briefing film, the wake-up and the Foundry with Dr. Okoro, the Gravity Fault lift (its brake clamps as reaction prompts), the Labs with the breach, the bend attack and Okoro's sacrifice, the quiet ride up, the Skyline's demolition and bridge jump, the Roof, and the ending in the helicopter with the credits - over the main theme. A death restarts the sector you were in, or - past its checkpoint - from there, once. The character and complexion picked on the start screen are the player in every level. Endless runs each environment on its own. Music is managed by `src/audio/music-manager.js` (a track per stage, and the briefing's score, which starts with the film), the voices by `src/story/voice.js`, and the recorded effects - the patients, the alarm, your pain, the building coming down - by `src/audio/level1-audio.js`, in every level; the Foundry adds a synthesized machinery bed (`src/audio/foundry-ambience.js`), and the Labs their own synthesized effects. Everything goes through one limiter (`src/audio/output.js`). Each module has its own checks (`node tests/<story|meltdown|causeway|foundry|elevators>/run.js`). `?fps` on the address shows the frame rate, quality and resolution at the top of the screen.
 
 ## Technology
 
